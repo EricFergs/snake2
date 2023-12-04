@@ -18,7 +18,7 @@ public:
     void Update(const sf::Time& deltaTime) override;
     void Draw() override;
 
-    // Added member functions
+
     void HandleWindowEvents(const sf::Event& event);
     void HandleKeyPress(sf::Keyboard::Key keyCode);
 private:

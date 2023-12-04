@@ -37,9 +37,11 @@ public:
     ~Game();
 
     void Run();
-
-private:
     const float fps = 1.f / 60.f;
-    std::shared_ptr<Context> m_context;
     const sf::Time TIME_PER_FRAME = sf::seconds(fps);
+    std::shared_ptr<Context> GetContext() const;
+    
+private:
+    std::shared_ptr<Context> m_context;
+    
 };
