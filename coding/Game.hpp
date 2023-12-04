@@ -40,6 +40,7 @@ enum AssetID
     WALL,
     FOOD,
     YELLOW,
+    PINK,
     GRASS,
     SNAKE
 };

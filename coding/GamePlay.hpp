@@ -30,6 +30,7 @@ private:
     sf::Sprite m_food;
     sf::Sprite m_food2;
     sf::Sprite m_yellowapple;
+    sf::Sprite m_pinkapple;
     std::array<sf::Sprite, 4> m_walls;
     Snake m_snake;
 

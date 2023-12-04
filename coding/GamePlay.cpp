@@ -26,6 +26,7 @@ void GamePlay::Init()
     m_context->m_assets->AddTexture(WALL, "assets/textures/wall.png", true);
     m_context->m_assets->AddTexture(SNAKE, "assets/textures/snake.png");
     m_context->m_assets->AddTexture(YELLOW, "assets/textures/yellowapple.png");
+    m_context->m_assets->AddTexture(PINK, "assets/textures/pinkapple.png");
 
     m_grass.setTexture(m_context->m_assets->GetTexture(GRASS));
     m_grass.setTextureRect(m_context->m_window->getViewport(m_context->m_window->getDefaultView()));
@@ -54,6 +55,10 @@ void GamePlay::Init()
     m_yellowapple.setTexture(m_context->m_assets->GetTexture(YELLOW));
     m_yellowapple.setScale(2.f, 2.f);  
     m_yellowapple.setPosition(m_context->m_window->getSize().x / 2 -128, m_context->m_window->getSize().y / 2);
+
+    m_pinkapple.setTexture(m_context->m_assets->GetTexture(PINK));
+    m_pinkapple.setScale(2.f, 2.f);  
+    m_pinkapple.setPosition(m_context->m_window->getSize().x / 2 + 128, m_context->m_window->getSize().y / 2 - 256);
 
     m_snake.Init(m_context->m_assets->GetTexture(SNAKE));  
     
@@ -116,7 +121,10 @@ void GamePlay::Update(const sf::Time &deltaTime)
                 break;
             }
         }
-
+        if (m_snake.IsOn(m_pinkapple))
+        {
+            m_context->m_states->Add(std::make_unique<MainMenu>(m_context), true);
+        }
         if (m_snake.IsOn(m_food))
         {
             m_snake.Grow(m_snakeDirection);
@@ -124,8 +132,13 @@ void GamePlay::Update(const sf::Time &deltaTime)
             int x = 0, y = 0;
             x = std::clamp<int>(rand() % m_context->m_window->getSize().x, 32, m_context->m_window->getSize().x - 2 * 32);  // Adjusted for larger blocks
             y = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32);  // Adjusted for larger blocks
-
             m_food.setPosition(x, y);
+
+            int x2 = 0, y2 = 0;
+            x2 = std::clamp<int>(rand() % m_context->m_window->getSize().x, 32, m_context->m_window->getSize().x - 2 * 32);  
+            y2 = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32); 
+            m_pinkapple.setPosition(x2, y2);
+
             m_score += 1;
             m_scoreText.setString("Score : " + std::to_string(m_score));
         }
@@ -138,6 +151,12 @@ void GamePlay::Update(const sf::Time &deltaTime)
             y = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32);  // Adjusted for larger blocks
 
             m_food2.setPosition(x, y);
+
+            int x2 = 0, y2 = 0;
+            x2 = std::clamp<int>(rand() % m_context->m_window->getSize().x, 32, m_context->m_window->getSize().x - 2 * 32);  
+            y2 = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32); 
+            m_pinkapple.setPosition(x2, y2);
+
             m_score += 1;
             m_scoreText.setString("Score : " + std::to_string(m_score));
         }
@@ -152,9 +171,16 @@ void GamePlay::Update(const sf::Time &deltaTime)
             y = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32);  // Adjusted for larger blocks
 
             m_yellowapple.setPosition(x, y);
+
+            int x2 = 0, y2 = 0;
+            x2 = std::clamp<int>(rand() % m_context->m_window->getSize().x, 32, m_context->m_window->getSize().x - 2 * 32);  
+            y2 = std::clamp<int>(rand() % m_context->m_window->getSize().y, 32, m_context->m_window->getSize().y - 2 * 32); 
+            m_pinkapple.setPosition(x2, y2);
+
             m_score += 3;
             m_scoreText.setString("Score : " + std::to_string(m_score));
         }
+        
         else
         {
             m_snake.Move(m_snakeDirection);
@@ -181,6 +207,7 @@ void GamePlay::Draw()
     m_context->m_window->draw(m_food);
     m_context->m_window->draw(m_food2);
     m_context->m_window->draw(m_yellowapple);
+    m_context->m_window->draw(m_pinkapple);
     m_context->m_window->draw(m_snake);
     m_context->m_window->draw(m_scoreText);
 
