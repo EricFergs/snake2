@@ -38,6 +38,7 @@ bool Snake::IsOn(const sf::Sprite &other) const
     return other.getGlobalBounds().intersects(m_head->getGlobalBounds());
 }
 
+
 void Snake::Grow(const sf::Vector2f &direction)
 {
     sf::Sprite newPiece;

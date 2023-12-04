@@ -21,6 +21,7 @@ public:
     bool IsSelfIntersecting() const;
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    
 
 private:
     std::list<sf::Sprite> m_body;

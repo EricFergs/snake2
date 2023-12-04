@@ -20,7 +20,9 @@ public:
     void ProcessInput() override;
     void Update(const sf::Time& deltaTime) override;
     void Draw() override;
-    
+    //void Reset(const sf::Vector2f& position, const sf::Vector2f& direction);
+
+    //void ResetGame() override;
 
 private:
     std::shared_ptr<Context> m_context;
@@ -34,5 +36,14 @@ private:
 
     sf::Vector2f m_snakeDirection;
     sf::Time m_elapsedTime;
+    //void GamePlay::Reset()
+    //{
+        //m_score = 0;
+        //m_snakeDirection = {16.f, 0.f};
+       // m_elapsedTime = sf::Time::Zero;
+
+    
+        //Init();
+   // }
 
 };

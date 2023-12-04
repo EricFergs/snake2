@@ -14,8 +14,10 @@ namespace Engine
         virtual void ProcessInput() = 0;
         virtual void Update(const sf::Time& deltaTime) = 0;
         virtual void Draw() = 0;
+        //virtual void ResetGame() = 0;
 
         virtual void Pause(){};
         virtual void Start(){};
+        
     };
 }
