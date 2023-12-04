@@ -28,6 +28,8 @@ private:
     std::shared_ptr<Context> m_context;
     sf::Sprite m_grass;
     sf::Sprite m_food;
+    sf::Sprite m_food2;
+    sf::Sprite m_yellowapple;
     std::array<sf::Sprite, 4> m_walls;
     Snake m_snake;
 
