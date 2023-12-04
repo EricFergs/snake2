@@ -20,8 +20,7 @@ public:
     void ProcessInput() override;
     void Update(const sf::Time& deltaTime) override;
     void Draw() override;
-    void Pause() override;
-    void Start() override;
+    
 
 private:
     std::shared_ptr<Context> m_context;
@@ -36,5 +35,4 @@ private:
     sf::Vector2f m_snakeDirection;
     sf::Time m_elapsedTime;
 
-    bool m_isPaused;
 };

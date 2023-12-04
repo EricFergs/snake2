@@ -1,6 +1,6 @@
 #include "GamePlay.hpp"
 #include "GameOver.hpp"
-#include "PauseGame.hpp"
+
 
 #include <SFML/Window/Event.hpp>
 
@@ -11,8 +11,8 @@ GamePlay::GamePlay(std::shared_ptr<Context> &context)
     : m_context(context),
       m_score(0),
       m_snakeDirection({16.f, 0.f}),
-      m_elapsedTime(sf::Time::Zero),
-      m_isPaused(false)
+      m_elapsedTime(sf::Time::Zero)
+      
 {
     srand(time(nullptr));
 }
@@ -80,9 +80,6 @@ void GamePlay::ProcessInput()
             case sf::Keyboard::Right:
                 newDirection = {16.f, 0.f};
                 break;
-            case sf::Keyboard::Escape:
-                m_context->m_states->Add(std::make_unique<PauseGame>(m_context));
-                break;
 
             default:
                 break;
@@ -99,9 +96,7 @@ void GamePlay::ProcessInput()
 
 void GamePlay::Update(const sf::Time &deltaTime)
 {
-    if (!m_isPaused)
-    {
-        m_elapsedTime += deltaTime;
+    m_elapsedTime += deltaTime;
 
         if (m_elapsedTime.asSeconds() > 0.1)
         {
@@ -138,7 +133,6 @@ void GamePlay::Update(const sf::Time &deltaTime)
 
             m_elapsedTime = sf::Time::Zero;
         }
-    }
 }
 
 void GamePlay::Draw()
@@ -157,12 +151,3 @@ void GamePlay::Draw()
     m_context->m_window->display();
 }
 
-void GamePlay::Pause()
-{
-    m_isPaused = true;
-}
-
-void GamePlay::Start()
-{
-    m_isPaused = false;
-}
