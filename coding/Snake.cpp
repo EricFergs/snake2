@@ -14,13 +14,11 @@ void Snake::Init(const sf::Texture &texture)
 {
     float x = 32.f;
 
-    // Define a list of colors for each piece of the snake
     sf::Color snakeColor = sf::Color::Blue;
     auto colorIter = snakeColor;
 
     for (auto &piece : m_body)
     {
-        // Set a different color for each piece
         piece.setTexture(texture);
         piece.setPosition({x, 32.f});
         piece.setColor(colorIter);

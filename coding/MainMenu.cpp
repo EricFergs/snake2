@@ -35,10 +35,10 @@ void MainMenu::Init()
     InitText(m_gameTitle, "Snake", -150.f, 100);
 
     
-    InitText(m_playButton, "Start", -30.f, 70);
+    InitText(m_playButton, "Start", -30.f, 80);
 
     
-    InitText(m_exitButton, "Leave", 30.f, 70);
+    InitText(m_exitButton, "Leave", 30.f, 80);
 }
 
 void MainMenu::ProcessInput()
