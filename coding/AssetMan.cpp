@@ -1,7 +1,7 @@
 #include "AssetMan.hpp"
 #include <stdexcept>
 
-namespace Engine {
+namespace GameEngine {
 
     AssetMan::AssetMan() {}
 

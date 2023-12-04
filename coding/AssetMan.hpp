@@ -8,7 +8,7 @@
 #include <map>
 #include <string>
 
-namespace Engine
+namespace GameEngine
 {
     class AssetMan
     {
