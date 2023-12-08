@@ -1,0 +1,7 @@
+Resources: 
+Snake tutorial:
+https://www.youtube.com/watch?v=xtZHJxYA6q8&list=PLiZZKL9HLmWMF8PlzvZu2WOC9kjs1zzhm
+Setting up the SFML library:
+https://youtu.be/jKbWBcVPLWQ?si=r5LoKco4aCk8TVE_
+Helping me setup and understand StateMachins:
+https://youtu.be/tgXEws1Ef8s?si=IqyB-8beRLcxkUXz
